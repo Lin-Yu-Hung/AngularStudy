@@ -1,15 +1,19 @@
 import { Component, signal, computed, Input, input, Output, EventEmitter, output } from '@angular/core';
 import { User } from './dummy-user';
+import { CommonModule } from '@angular/common';
+import { CardComponent } from "../shared/card/card.component";
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.scss'
+  styleUrl: './user.component.scss',
+  imports: [CommonModule, CardComponent]
 })
 
 export class UserComponent {
+  // @Input({ required: true }) onSelect: boolean = false
+  onSelect = input.required<boolean>();
   userData = input.required<User>();
   @Output() select = new EventEmitter<User>()
   // select = output<string>();

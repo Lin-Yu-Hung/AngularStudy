@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/Header.component';
 import { UserComponent } from './user/user.component';
@@ -8,7 +9,7 @@ import { DUMMY_USERS, User } from '../app/user/dummy-user'
 @Component({
   selector: 'app-root', // 用於決定元件的標籤名稱  使用上<app-root />
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent],
+  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent, NgFor, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

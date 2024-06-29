@@ -1,1 +1,28 @@
-<h1>{{ showData().name }}</h1>
+<section id="tasks">
+  <header>
+    <h2>{{ showData().name }}</h2>
+    <menu>
+      <button (click)="createTask()">Add Tasks</button>
+    </menu>
+  </header>
+  <ul>
+    @if (userTasks.length>0) { @for (task of userTasks; track task.id ) {
+    <li>
+      <app-card>
+        <app-task [userId]="showData().id" [task]="task" />
+      </app-card>
+    </li>
+
+    } } @else {
+    <h2>目前沒工作!!</h2>
+    }
+  </ul>
+  @if (onAddingTask) {
+  <!-- 建立視窗 -->
+  <app-new-task
+    (closeModal)="onAddingTask = false"
+    [tasksLen]="tasksLen"
+    [userId]="showData().id"
+  />
+  }
+</section>

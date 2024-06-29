@@ -3,13 +3,20 @@
 <main>
   <ul id="users">
     @for (user of users; track user.id) {
-      <li><app-user [userData]="user" (select)="onSelectUser($event)" /></li>
+    <li>
+      <app-user
+        [userData]="user"
+        [onSelect]="selectUser ? selectUser.id === user.id : false"
+        (select)="onSelectUser($event)"
+      />
+    </li>
     }
   </ul>
+
   @if (selectUser) {
-    <app-tasks [userInfo]="selectUser" />
-  }@else {
-    <h1>Select a user see their tasks!</h1>
+  <app-tasks [userInfo]="selectUser" />
+  } @else {
+  <h1>Select a user see their tasks!</h1>
   }
 </main>
 <router-outlet />

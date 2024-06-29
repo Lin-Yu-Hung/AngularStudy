@@ -1,6 +1,6 @@
-<div>
-    <button (click)="onSelectUser($event)">
-        <img [src]="imagePath()" [alt]="userData().name" />
-        <span>{{ userData().name }}</span>
-    </button>
-</div>
+<app-card>
+  <button (click)="onSelectUser($event)" [ngClass]="{ active: onSelect() }">
+    <img [src]="imagePath()" [alt]="userData().name" />
+    <span>{{ userData().name }}</span>
+  </button>
+</app-card>
