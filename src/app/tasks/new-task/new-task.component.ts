@@ -1,11 +1,8 @@
 import { Component, Output, EventEmitter, signal, input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Task } from '../dummy-tasks';
 import { TaskService } from '../task.service';
 @Component({
   selector: 'app-new-task',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.scss'
 })
@@ -16,6 +13,7 @@ export class NewTaskComponent {
   title = signal<string>('')
   summary = signal<string>('')
   dueDate = signal<string>('')
+
   @Output() closeModal = new EventEmitter<void>();
   cancelCreate() {
     this.closeModal.emit()

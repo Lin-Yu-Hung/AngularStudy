@@ -1,14 +1,10 @@
 import { Component, signal, computed, Input, input, Output, EventEmitter, output } from '@angular/core';
 import { User } from './dummy-user';
-import { CommonModule } from '@angular/common';
-import { CardComponent } from "../shared/card/card.component";
 
 @Component({
   selector: 'app-user',
-  standalone: true,
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
-  imports: [CommonModule, CardComponent]
 })
 
 export class UserComponent {
